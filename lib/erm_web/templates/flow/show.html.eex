@@ -1,0 +1,28 @@
+<h1>Show Flow</h1>
+
+<ul>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @flow.type %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @flow.name %>
+  </li>
+
+  <li>
+    <strong>Process:</strong>
+    <%= @flow.process %>
+  </li>
+
+  <li>
+    <strong>Content:</strong>
+    <%= inspect(@flow.steps) %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.flow_path(@conn, :edit, @flow) %></span>
+<span><%= link "Back", to: Routes.flow_path(@conn, :index) %></span>

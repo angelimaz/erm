@@ -1,0 +1,36 @@
+<h1>Base html</h1>
+<p>To register ... to</p>
+<p>A, B, C ..</p>
+request
+
+nombre:40chars
+
+street: 
+number:
+postal code:
+city:
+country:
+
+-> 1..n
+default flag:
+phone:
+email:
+
+correspondance_language:
+
+| Warning 
+1..n
+Tax Type:
+Tax  ID:
+
+--> 
+INPUT --> parametros
+OUTPUTS --> NEW
+
+-->  
+INPUT --> Adjuntos
+OUTPUT --> PENDING_APPROVAL
+
+--> Approval process start
+
+

@@ -1,0 +1,33 @@
+<h1>Show Partner</h1>
+
+<ul>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @partner.first_name %>
+  </li>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @partner.last_name %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @partner.email %>
+  </li>
+
+  <li>
+    <strong>Password:</strong>
+    <%= @partner.password %>
+  </li>
+
+  <li>
+    <strong>Password confirmation:</strong>
+    <%= @partner.password_confirmation %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.partner_path(@conn, :edit, @partner) %></span>
+<span><%= link "Back", to: Routes.partner_path(@conn, :index) %></span>

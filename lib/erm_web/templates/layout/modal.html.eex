@@ -1,0 +1,26 @@
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Modal title</p>
+      <button class="delete modal-close close" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+        modal content
+      <!-- Content ... -->
+      <div class="modal-spinner">
+        spinner
+      </div>
+      <div class="modal-error">
+        <section>
+          <h3>Ops...</h3>
+          <p>
+            There was an error sorry ...
+          </p>
+        </section>
+      </div>
+      <div class="modal-content">
+      </div>
+    </section>
+  </div>
+</div>

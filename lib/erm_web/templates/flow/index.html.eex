@@ -1,0 +1,32 @@
+<h1>Listing Flows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Process</th>
+      <th>Steps</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for flow <- @flows do %>
+    <tr>
+      <td><%= flow.type %></td>
+      <td><%= flow.name %></td>
+      <td><%= flow.process %></td>
+      <td><%= inspect(flow.steps) %></td>
+
+      <td>
+        <%= link "Show", to: Routes.flow_path(@conn, :show, flow) %>
+        <%= link "Edit", to: Routes.flow_path(@conn, :edit, flow) %>
+        <%= link "Delete", to: Routes.flow_path(@conn, :delete, flow), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Flow", to: Routes.flow_path(@conn, :new) %></span>

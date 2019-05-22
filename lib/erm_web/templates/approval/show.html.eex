@@ -1,0 +1,23 @@
+<h1>Show Approval</h1>
+
+<ul>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @approval.type %>
+  </li>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @approval.title %>
+  </li>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @approval.content %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.approval_path(@conn, :edit, @approval) %></span>
+<span><%= link "Back", to: Routes.approval_path(@conn, :index) %></span>

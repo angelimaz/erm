@@ -1,0 +1,111 @@
+  <nav class="navbar has-shadow">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="http://allsetconsulting.com">
+          <img src="<%= Routes.static_path(@conn, "/images/allset_logo.png") %>" alt="AllSet Consulting" />
+        </a>
+        <div class="navbar-burger burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+        </div>
+
+        <!-- start navbar -->
+        <%= if maybe_user(@conn) == false do %>
+         <div class="navbar-end">
+  
+          <div class="navbar-item">
+            <div class="buttons">
+            
+
+            <%= link "Login", to: "/auth/microsoft", class: "button" %>
+
+            </div>
+          </div> 
+          <p class="navbar-item">
+            more info
+          </p>
+         </div>
+    
+        <% else %>
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <div class="navbar-link">
+              <%= partner_display(@conn) %>
+            </div>
+            <div class="navbar-dropdown is-right">
+              <%= link "Logout", to: "/logout", method: :post, class: "navbar-item"%>
+        
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <!-- end navbar end --> 
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="columns">
+        <%= if maybe_user(@conn) == false do %>
+        <% else %>
+        <div class="column is-2-tablet is-2-desktop is-2-widescreen my-nav">
+          <nav class="menu">
+            <p class="menu-label">
+              Menu
+            </p>
+            <ul class="menu-list">
+              <li>
+                <a class='<%="#{active_class(ErmWeb.HomeController, @conn)}"%>' href="/home">
+                  <span class="icon">
+                    <i class="fas fa-tachometer-alt fa-2x"></i>
+                  </span>
+                   &nbsp;Dashboard
+                  </a>
+              </li>
+                 <li>
+                <a class='<%="#{active_class(ErmWeb.ActivityController, @conn)}"%>' href="/activities">
+                  <span class="icon">
+                    <i class="far fa-calendar fa-2x"></i>
+                  </span>
+                   &nbsp;Activities
+                  </a>
+              </li>
+              <li>
+                <a class='<%="#{active_class(ErmWeb.EntityController, @conn)}"%>' href="/entities">
+                  <span class="icon">
+                    <i class="fas fa-globe-africa fa-2x"></i>
+                  </span>
+                   &nbsp;Entities
+                </a>
+              </li>
+              <li>
+                <a class='<%="#{active_class(ErmWeb.RelationController, @conn)}"%>' href="/relations">
+                  <span class="icon">
+                    <i class="fab fa-connectdevelop fa-2x"></i>
+                  </span>
+                &nbsp;Relations
+                </a>
+              </li>
+              <li>
+                <a class='<%="#{active_class(ErmWeb.RoleController, @conn)}"%>' href="/roles">
+                  <span class="icon">
+                    <i class="fas fa-user-check fa-2x"></i>
+                  </span>
+                &nbsp;Roles
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <% end %>
+
+        <div class="column">
+         <%= render @view_module, @view_template, assigns %>
+         <%= render "modal.html", assigns %>
+ 
+        </div>
+    </section>

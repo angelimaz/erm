@@ -1,0 +1,30 @@
+<h1>Listing Entities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Title</th>
+      <th>Content</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for approval <- @entities do %>
+    <tr>
+      <td><%= approval.type %></td>
+      <td><%= approval.title %></td>
+      <td><%= approval.content %></td>
+
+      <td>
+        <%= link "Show", to: Routes.approval_path(@conn, :show, approval) %>
+        <%= link "Edit", to: Routes.approval_path(@conn, :edit, approval) %>
+        <%= link "Delete", to: Routes.approval_path(@conn, :delete, approval), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Approval", to: Routes.approval_path(@conn, :new) %></span>
